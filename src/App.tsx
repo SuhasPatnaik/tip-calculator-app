@@ -1,12 +1,39 @@
+import dollarIcon from "./assets/images/icon-dollar.svg";
+import personIcon from "./assets/images/icon-person.svg";
+
 export default function App() {
   return (
     <>
-      <h1 className="font-bold underline text-neutral-600">Hello world!</h1>
-      <h2 className="font-bold underline">Hello world!</h2>
-      <h3 className="font-bold underline">Hello world!</h3>
-      <h4 className="font-bold underline">Hello world!</h4>
-      <h5 className="font-bold underline">Hello world!</h5>
-      <p className="font-bold underline">Hello world!</p>
+      <div className="mt-12">
+        <Logo />
+      </div>
+      <div>
+        <MiniForm inputLabel="Bill" inputIcon={dollarIcon} />
+      </div>
+      <div>
+        <MiniForm inputLabel="Number of People" inputIcon={personIcon} />
+      </div>
+    </>
+  );
+}
+
+function Logo() {
+  return <img src="/logo.svg" alt="Splitter App Logo" />;
+}
+
+function MiniForm({ inputLabel, inputIcon }) {
+  return (
+    <>
+      <div className="flex flex-col">
+        <label>{inputLabel}</label>
+        <input
+          type="text"
+          style={{
+            backgroundImage: `url(${inputIcon})`,
+          }}
+          className="p-2 bg-no-repeat bg-left bg-center text-right h-16"
+        />
+      </div>
     </>
   );
 }
