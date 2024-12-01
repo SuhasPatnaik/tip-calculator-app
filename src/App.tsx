@@ -21,7 +21,7 @@ export default function App() {
         />
       </div>
       <div>
-        <SelectTipPercentage />
+        <SelectTipPercentage onTipPercentage={setTipPercentage} />
       </div>
       <div>
         <MiniForm
@@ -66,19 +66,33 @@ function MiniForm({ inputLabel, inputIcon, inputValue, handleChange }) {
   );
 }
 
-function SelectTipPercentage() {
+function SelectTipPercentage({ onTipPercentage }) {
   const [isCustomClicked, setIsCustomClicked] = useState(false);
   const [customTip, setCustomTip] = useState();
+
+  const presetTipPercentages = [5, 10, 15, 25, 50];
+
+  const handleTipPercentSelect = (tipPercentValue) => {
+    onTipPercentage(tipPercentValue);
+  };
 
   return (
     <>
       <p>Select Tip %</p>
       <div id="selectTipSection" className="grid grid-cols-2  gap-4">
-        <button className="bg-neutral-600">5%</button>
-        <button className="bg-neutral-600">10%</button>
-        <button className="bg-neutral-600">15%</button>
-        <button className="bg-neutral-600">25%</button>
-        <button className="bg-neutral-600">50%</button>
+        {presetTipPercentages.map((tipPercent, index) => (
+          <button
+            key={index}
+            className="bg-neutral-600"
+            onClick={() => {
+              onTipPercentage(tipPercent / 100);
+              setIsCustomClicked(false);
+            }}
+          >
+            {tipPercent}%
+          </button>
+        ))}
+
         {isCustomClicked ? (
           <input
             type="text"
@@ -89,7 +103,10 @@ function SelectTipPercentage() {
         ) : (
           <button
             className="bg-neutral-600"
-            onClick={() => setIsCustomClicked(!isCustomClicked)}
+            onClick={() => {
+              setIsCustomClicked(true);
+              onTipPercentage(tipPercent / 100);
+            }}
           >
             Custom
           </button>
