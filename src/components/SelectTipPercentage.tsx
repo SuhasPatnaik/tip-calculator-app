@@ -19,7 +19,7 @@ export default function SelectTipPercentage({ onTipPercentage }) {
           <p className="text-sm">Select Tip %</p>
           <p className="text-xsm text-neutral-400">(Default 20%)</p>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
           {presetTipPercentages.map((tipPercent, index) => (
             <button
               key={index}
@@ -37,7 +37,7 @@ export default function SelectTipPercentage({ onTipPercentage }) {
             <input
               type="text"
               ref={inputRef}
-              className="text-right pr-4 bg-neutral-200 text-neutral-600 rounded-[0.5rem]  focus:outline-none focus:ring-0 focus:border-primary-100 focus:border-2"
+              className="text-right pr-4 bg-neutral-200 text-neutral-600 rounded-[0.5rem] focus:outline-none focus:border-primary-100 focus:border-2"
               onChange={(e) => {
                 onTipPercentage(Number(e.target.value) / 100);
               }}

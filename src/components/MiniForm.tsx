@@ -16,7 +16,7 @@ export default function MiniForm({
             backgroundImage: `url(${inputIcon})`,
             backgroundPosition: "1rem",
           }}
-          className="px-4 bg-no-repeat text-right h-12 bg-neutral-200 text-neutral-600 rounded-[0.5rem] focus:outline-none focus:ring-0 focus:border-primary-100 focus:border-2"
+          className="px-4 bg-no-repeat text-right h-12 bg-neutral-200 text-neutral-600 rounded-[0.5rem] focus:outline-none focus:border-primary-100 focus:border-2"
         />
       </div>
     </>
