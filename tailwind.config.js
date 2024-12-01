@@ -17,6 +17,14 @@ export default {
         },
       },
     },
+    fontFamily: {
+      spaceMono: ["Space Mono", "monospace"],
+    },
+    fontSize: {
+      xsm: "0.8125rem",
+      sm: "1rem",
+      base: "1.5rem",
+    },
   },
   plugins: [],
 };

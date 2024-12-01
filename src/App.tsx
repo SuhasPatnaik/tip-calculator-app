@@ -18,26 +18,20 @@ export default function App() {
       <div className="mt-12 flex justify-center">
         <Logo />
       </div>
-      <div>
+      <div className="bg-neutral-100 mt-12 p-8 rounded-t-[1.5rem] flex flex-col gap-8">
         <MiniForm
           inputLabel="Bill"
           inputIcon={dollarIcon}
           inputValue={billAmount}
           handleChange={(value) => setBillAmount(value)}
         />
-      </div>
-      <div>
         <SelectTipPercentage onTipPercentage={setTipPercentage} />
-      </div>
-      <div>
         <MiniForm
           inputLabel="Number of People"
           inputIcon={personIcon}
           inputValue={numberOfPeople}
           handleChange={(value) => setNumberOfPeople(value)}
         />
-      </div>
-      <div>
         <TipResults
           billValue={billAmount}
           headcount={numberOfPeople}

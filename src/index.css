@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 body {
-  @apply bg-neutral-400 min-h-screen;
+  @apply bg-neutral-400 text-neutral-500 font-spaceMono text-base min-h-screen;
   display: grid;
 }
