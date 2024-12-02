@@ -1,3 +1,5 @@
+import ErroneousInputLabel from "./ErroneousInputLabel";
+
 export default function MiniForm({
   inputLabel,
   inputIcon,
@@ -12,7 +14,7 @@ export default function MiniForm({
         <div className="flex flex-col lg:flex-row lg:justify-between">
           <label className="text-sm">{inputLabel}</label>
           {!acceptableInput ? (
-            <ErroroneousInputLabel inputValue={inputValue} />
+            <ErroneousInputLabel inputValue={inputValue} />
           ) : null}
         </div>
         <input
@@ -30,22 +32,6 @@ export default function MiniForm({
           }`}
         />
       </div>
-    </>
-  );
-}
-
-function ErroroneousInputLabel({ inputValue }) {
-  return (
-    <>
-      {inputValue == 0 ? (
-        <p className="text-xsm text-red-500 lg:self-end">Can't be zero</p>
-      ) : inputValue < 0 ? (
-        <p className="text-xsm text-red-500 lg:self-end">Can't be negative</p>
-      ) : (
-        <p className="text-xsm text-red-500 lg:self-end">
-          Can't be character(s)
-        </p>
-      )}
     </>
   );
 }
