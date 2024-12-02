@@ -1,4 +1,9 @@
-export default function TipResults({ billValue, headcount, tipPercent }) {
+export default function TipResults({
+  billValue,
+  headcount,
+  tipPercent,
+  onReset,
+}) {
   const totalTip = parseFloat((billValue * tipPercent).toFixed(2));
   const tipPerHead = parseFloat((totalTip / headcount).toFixed(2));
 
@@ -19,7 +24,10 @@ export default function TipResults({ billValue, headcount, tipPercent }) {
           </p>
           <p className="text-xsm text-neutral-400">/ person</p>
         </div>
-        <button className="bg-primary-100 text-neutral-600 text-[1.25rem] rounded-[0.25rem] hover:bg-neutral-300 w-full p-2 lg:mt-auto">
+        <button
+          className="bg-primary-100 text-neutral-600 text-[1.25rem] rounded-[0.25rem] hover:bg-neutral-300 w-full p-2 lg:mt-auto"
+          onClick={onReset}
+        >
           RESET
         </button>
       </div>

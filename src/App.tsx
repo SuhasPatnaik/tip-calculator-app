@@ -13,6 +13,12 @@ export default function App() {
   const [numberOfPeople, setNumberOfPeople] = useState(1); // Default: 1 as we need atleast one person to generate a bill
   const [tipPercentage, setTipPercentage] = useState(0.2); // Default: 20% is the generally accepted tip % in the US
 
+  const handleReset = () => {
+    setBillAmount("");
+    setNumberOfPeople(1);
+    setTipPercentage(0.2);
+  };
+
   return (
     <>
       <div className="mt-12 flex justify-center 2xl:mt-24">
@@ -39,6 +45,7 @@ export default function App() {
             billValue={billAmount}
             headcount={numberOfPeople}
             tipPercent={tipPercentage}
+            onReset={handleReset}
           />
         </div>
       </div>
