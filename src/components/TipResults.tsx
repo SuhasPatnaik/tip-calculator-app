@@ -8,14 +8,14 @@ export default function TipResults({ billValue, headcount, tipPercent }) {
         <div className="grid grid-rows-2 grid-cols-2">
           <p className="text-sm text-neutral-100 self-end">Tip Amount</p>
           <p className="row-span-2 text-[2rem] text-primary-100 justify-self-end lg:text-[3rem]">
-            ${Number.isNaN(tipPerHead) ? 0 : tipPerHead}
+            ${Number.isNaN(tipPerHead) || tipPerHead <= 0 ? 0 : tipPerHead}
           </p>
           <p className="text-xsm text-neutral-400">/ person</p>
         </div>
         <div className="grid grid-rows-2 grid-cols-2">
           <p className="text-sm text-neutral-100 self-end">Total</p>
           <p className="row-span-2 text-[2rem] text-primary-100 justify-self-end lg:text-[3rem]">
-            ${Number.isNaN(totalTip) ? 0 : totalTip}
+            ${Number.isNaN(totalTip) || totalTip <= 0 ? 0 : totalTip}
           </p>
           <p className="text-xsm text-neutral-400">/ person</p>
         </div>
