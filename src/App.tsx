@@ -12,7 +12,7 @@ const DEFAULT_NUMBER_OF_PEOPLE = 1;
 const DEFAULT_TIP_PERCENTAGE = 0.2;
 
 export default function App() {
-  const [billAmount, setBillAmount] = useState<number | undefined>(undefined);
+  const [billAmount, setBillAmount] = useState<number>(0);
   const [numberOfPeople, setNumberOfPeople] = useState<number>(
     DEFAULT_NUMBER_OF_PEOPLE
   ); // Default: 1 as we need atleast one person to generate a bill
@@ -21,7 +21,7 @@ export default function App() {
   ); // Default: 20% is the generally accepted tip % in the US
 
   const handleReset = () => {
-    setBillAmount(undefined);
+    setBillAmount(0);
     setNumberOfPeople(1);
     setTipPercentage(0.2);
   };

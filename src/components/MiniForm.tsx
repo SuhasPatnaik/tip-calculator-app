@@ -25,7 +25,7 @@ export default function MiniForm({
         <input
           type="text"
           value={inputValue}
-          onChange={(e) => handleChange(e.target.value)}
+          onChange={(e) => handleChange(Number(e.target.value))}
           style={{
             backgroundImage: `url(${inputIcon})`,
             backgroundPosition: "1rem",
