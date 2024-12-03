@@ -1,4 +1,10 @@
-export default function ErroneousInputLabel({ inputValue }) {
+type ErroneousInputLabelProps = {
+  inputValue: number;
+};
+
+export default function ErroneousInputLabel({
+  inputValue,
+}: ErroneousInputLabelProps) {
   return (
     <>
       {inputValue == 0 ? (

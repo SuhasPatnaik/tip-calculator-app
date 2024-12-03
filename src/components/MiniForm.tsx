@@ -1,11 +1,18 @@
 import ErroneousInputLabel from "./ErroneousInputLabel";
 
+type MiniFormProps = {
+  inputLabel: string;
+  inputIcon: string;
+  inputValue: number;
+  handleChange: (inputValue: number) => void;
+};
+
 export default function MiniForm({
   inputLabel,
   inputIcon,
   inputValue,
   handleChange,
-}) {
+}: MiniFormProps) {
   const acceptableInput = inputValue > 0 || !inputValue;
 
   return (
@@ -13,9 +20,7 @@ export default function MiniForm({
       <div className="flex flex-col gap-2">
         <div className="flex flex-col lg:flex-row lg:justify-between">
           <label className="text-sm">{inputLabel}</label>
-          {!acceptableInput ? (
-            <ErroneousInputLabel inputValue={inputValue} />
-          ) : null}
+          {!acceptableInput && <ErroneousInputLabel inputValue={inputValue} />}
         </div>
         <input
           type="text"

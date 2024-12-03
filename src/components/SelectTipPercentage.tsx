@@ -2,9 +2,15 @@ import { useState, useRef, useEffect } from "react";
 
 const presetTipPercentages = [5, 10, 15, 25, 50];
 
-export default function SelectTipPercentage({ onTipPercentage }) {
+type SelectTipPercentageProps = {
+  onTipPercentage: (percent: number) => void;
+};
+
+export default function SelectTipPercentage({
+  onTipPercentage,
+}: SelectTipPercentageProps) {
   const [isCustomClicked, setIsCustomClicked] = useState(false);
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (isCustomClicked) {

@@ -1,9 +1,16 @@
+type TipResultsProps = {
+  billValue: number;
+  headcount: number;
+  tipPercent: number;
+  onReset: () => void;
+};
+
 export default function TipResults({
   billValue,
   headcount,
   tipPercent,
   onReset,
-}) {
+}: TipResultsProps) {
   const totalTip = parseFloat((billValue * tipPercent).toFixed(2));
   const tipPerHead = parseFloat((totalTip / headcount).toFixed(2));
 
