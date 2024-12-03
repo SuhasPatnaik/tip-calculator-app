@@ -8,13 +8,20 @@ import MiniForm from "./components/MiniForm";
 import SelectTipPercentage from "./components/SelectTipPercentage";
 import TipResults from "./components/TipResults";
 
+const DEFAULT_NUMBER_OF_PEOPLE = 1;
+const DEFAULT_TIP_PERCENTAGE = 0.2;
+
 export default function App() {
-  const [billAmount, setBillAmount] = useState();
-  const [numberOfPeople, setNumberOfPeople] = useState(1); // Default: 1 as we need atleast one person to generate a bill
-  const [tipPercentage, setTipPercentage] = useState(0.2); // Default: 20% is the generally accepted tip % in the US
+  const [billAmount, setBillAmount] = useState<number | undefined>(undefined);
+  const [numberOfPeople, setNumberOfPeople] = useState<number>(
+    DEFAULT_NUMBER_OF_PEOPLE
+  ); // Default: 1 as we need atleast one person to generate a bill
+  const [tipPercentage, setTipPercentage] = useState<number>(
+    DEFAULT_TIP_PERCENTAGE
+  ); // Default: 20% is the generally accepted tip % in the US
 
   const handleReset = () => {
-    setBillAmount("");
+    setBillAmount(undefined);
     setNumberOfPeople(1);
     setTipPercentage(0.2);
   };
@@ -30,14 +37,14 @@ export default function App() {
             inputLabel="Bill"
             inputIcon={dollarIcon}
             inputValue={billAmount}
-            handleChange={(value) => setBillAmount(value)}
+            handleChange={(value: number) => setBillAmount(value)}
           />
           <SelectTipPercentage onTipPercentage={setTipPercentage} />
           <MiniForm
             inputLabel="Number of People"
             inputIcon={personIcon}
             inputValue={numberOfPeople}
-            handleChange={(value) => setNumberOfPeople(value)}
+            handleChange={(value: number) => setNumberOfPeople(value)}
           />
         </div>
         <div>

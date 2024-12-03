@@ -1,7 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 
-import ErroneousInputLabel from "./ErroneousInputLabel";
-
 const presetTipPercentages = [5, 10, 15, 25, 50];
 
 export default function SelectTipPercentage({ onTipPercentage }) {
