@@ -1,15 +1,15 @@
 type ErroneousInputLabelProps = {
-  inputValue: number;
+  rawInputValue: string;
 };
 
 export default function ErroneousInputLabel({
-  inputValue,
+  rawInputValue,
 }: ErroneousInputLabelProps) {
   return (
     <>
-      {inputValue == 0 ? (
+      {Number(rawInputValue) == 0 ? (
         <p className="text-xsm text-red-500 lg:self-end">Can't be zero</p>
-      ) : inputValue < 0 ? (
+      ) : Number(rawInputValue) < 0 ? (
         <p className="text-xsm text-red-500 lg:self-end">Can't be negative</p>
       ) : (
         <p className="text-xsm text-red-500 lg:self-end">

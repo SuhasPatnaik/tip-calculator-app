@@ -28,24 +28,23 @@ export default function App() {
 
   return (
     <>
-      <div className="mt-12 flex justify-center 2xl:mt-24">
+      <div className="mt-12 flex justify-center">
         <Logo />
       </div>
-      <div className="bg-neutral-100 mt-12 p-8 rounded-t-[1.5rem] flex flex-col gap-8 lg:max-w-[60vw] lg:mx-auto lg:grid lg:grid-cols-2 lg:rounded-[1.5rem] 2xl:mt-24">
+      <div className="bg-neutral-100 mt-12 p-8 rounded-t-[1.5rem] flex flex-col gap-8 lg:max-w-[60vw] lg:mx-auto lg:grid lg:grid-cols-2 lg:rounded-[1.5rem]">
         <div className="grid gap-y-6">
           <MiniForm
             inputLabel="Bill"
             inputIcon={dollarIcon}
-            inputValue={billAmount}
             handleChange={(value: number) => setBillAmount(value)}
           />
           <SelectTipPercentage onTipPercentage={setTipPercentage} />
           <MiniForm
             inputLabel="Number of People"
             inputIcon={personIcon}
-            inputValue={numberOfPeople}
             handleChange={(value: number) => setNumberOfPeople(value)}
           />
+          <p className="text-xsm text-neutral-400">(Default: 1)</p>
         </div>
         <div>
           <TipResults

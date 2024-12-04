@@ -1,31 +1,46 @@
+import { useState } from "react";
 import ErroneousInputLabel from "./ErroneousInputLabel";
 
 type MiniFormProps = {
   inputLabel: string;
   inputIcon: string;
-  inputValue: number;
   handleChange: (inputValue: number) => void;
 };
 
 export default function MiniForm({
   inputLabel,
   inputIcon,
-  inputValue,
   handleChange,
 }: MiniFormProps) {
-  const acceptableInput = inputValue > 0 || !inputValue;
+  const [rawInputValue, setRawInputValue] = useState<string>("");
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setRawInputValue(value);
+
+    // Allow only valid numeric input
+    if (!isNaN(Number(value)) && value.trim() !== "") {
+      handleChange(Number(value)); // Update numeric state
+    } else if (value === "") {
+      handleChange(0); // Reset to 0 for empty input
+    }
+  };
+
+  const acceptableInput = Number(rawInputValue) > 0 || !rawInputValue;
 
   return (
     <>
       <div className="flex flex-col gap-2">
         <div className="flex flex-col lg:flex-row lg:justify-between">
           <label className="text-sm">{inputLabel}</label>
-          {!acceptableInput && <ErroneousInputLabel inputValue={inputValue} />}
+          {!acceptableInput && (
+            <ErroneousInputLabel rawInputValue={rawInputValue} />
+          )}
         </div>
         <input
           type="text"
-          value={inputValue}
-          onChange={(e) => handleChange(Number(e.target.value))}
+          value={rawInputValue}
+          onChange={(e) => handleInputChange(e)}
           style={{
             backgroundImage: `url(${inputIcon})`,
             backgroundPosition: "1rem",
