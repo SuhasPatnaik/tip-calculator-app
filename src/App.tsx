@@ -31,7 +31,7 @@ export default function App() {
       <div className="mt-12 flex justify-center">
         <Logo />
       </div>
-      <div className="bg-neutral-100 mt-12 p-8 rounded-t-[1.5rem] flex flex-col gap-8 lg:max-w-[60vw] lg:mx-auto lg:grid lg:grid-cols-2 lg:rounded-[1.5rem]">
+      <div className="bg-neutral-100 mt-12 p-8 rounded-t-[1.5rem] flex flex-col gap-8 md:max-w-[40rem] md:mx-auto lg:max-w-[60rem] lg:mx-auto lg:grid lg:grid-cols-2 lg:rounded-[1.5rem]">
         <div className="grid gap-y-6">
           <MiniForm
             inputLabel="Bill"
